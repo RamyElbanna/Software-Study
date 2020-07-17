@@ -69,6 +69,7 @@ public:
 int main()
 {
     Stack s = Stack(5);
+    s.Push(1);
     s.Push(2);
     s.Push(4);
     s.Push(6);
