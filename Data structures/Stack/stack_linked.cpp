@@ -57,6 +57,6 @@ int main()
     {
         cout << s.Pop();
     }
-
+    system("pause");
     return 0;
 }
