@@ -13,6 +13,10 @@ public:
         capacity = 16;
         size = 0;
         myArray = new int[capacity];
+        for (int i = 0; i < capacity; i++)
+        {
+            myArray[i] = 0;
+        }
     }
 
     void Push(int item){
@@ -31,7 +35,6 @@ public:
     }
 
     void Delete(int index){
-        // [1,2,3,4]
         if( index < 0 || index >= size) throw("Index out of bounds");
         for (int i = index ; i <= myArray[size-1]; i++)
         {
@@ -44,6 +47,10 @@ public:
         return size;
     }
 
+    int Capacity(){
+        return capacity;
+    }
+
     bool IsEmpty(){
         return size == 0;
     }
@@ -54,10 +61,14 @@ public:
     }
 
     void Insert(int index, int item){
-        if( index < 0 || index >= size) throw("Index out of bounds");
-        for (int i = myArray[size-1]; i >= index; i--)
+        if(index > size) throw("Index out of bounds");
+
+        if(size > 0)
         {
-            myArray[i+1] = myArray[i];
+            for (int i = myArray[size-1]; i >= index; i--)
+            {
+                myArray[i+1] = myArray[i];
+            }
         }
         myArray[index] = item;
         size++;
@@ -73,26 +84,24 @@ public:
         delete[] myArray;
         myArray = newArray;
     }
-
-    void display(){
-        cout << "My Arraylist size is: " << size << endl;
-        cout << "arrayList:" << "[";
-        for (int i = 0; i < size; i++)
-        {
-            cout <<  myArray[i] << ",";
-        }
-        cout << "]" << endl;
-    }
-
 };
+
+
+void display(ArrayList al, int size){
+    cout << "My Arraylist size is: " << size << endl;
+    cout << "arrayList:" << "[";
+    for (int i = 0; i < size; i++)
+    {
+        cout << al.At(i) << ",";
+    }
+    cout << "]" << endl;
+}
 
 int main(){
     ArrayList arrayList;
-    arrayList.Push(7);
-    arrayList.Push(8);
-    arrayList.Insert(1,9);
-    arrayList.Pop();
-    arrayList.Delete(1);
-    arrayList.display();
+    arrayList.Push(10);
+    arrayList.Delete(0);
+
+    display(arrayList,arrayList.Size());
     return 0;
 }

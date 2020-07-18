@@ -45,8 +45,6 @@ public:
     {
         if (IsEmpty())
         {
-            cout << "stack is empty!"
-                 << "\n";
             return 0;
         }
 
