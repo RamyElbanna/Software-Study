@@ -44,19 +44,3 @@ public:
         return top->value;
     }
 };
-
-int main()
-{
-    Stack s;
-    s.Push(5);
-    s.Push(7);
-    s.Push(8);
-    s.Push(9);
-
-    while (!s.IsEmpty())
-    {
-        cout << s.Pop();
-    }
-    system("pause");
-    return 0;
-}

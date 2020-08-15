@@ -43,8 +43,7 @@ public:
 
     void Insert(int index, int item){
         if(index == 0){
-            PushFront(item);
-            return;
+            return PushFront(item);
         }
 
         if(index > size) throw("out of boundries");
@@ -83,10 +82,3 @@ public:
     }
 
 };
-
-int main(){
-    LinkedList ls = LinkedList();
-    ls.Insert(0,3);
-    ls.Display();
-    return 0;
-}

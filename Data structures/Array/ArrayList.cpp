@@ -96,12 +96,3 @@ void display(ArrayList al, int size){
     }
     cout << "]" << endl;
 }
-
-int main(){
-    ArrayList arrayList;
-    arrayList.Push(10);
-    arrayList.Delete(0);
-
-    display(arrayList,arrayList.Size());
-    return 0;
-}
