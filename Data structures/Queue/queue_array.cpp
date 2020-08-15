@@ -2,6 +2,8 @@
 
 using namespace std;
 
+
+// queue implementation (circular buffer)
 class Queue{
     private:
         int size;
@@ -22,7 +24,7 @@ class Queue{
 
         // methods
         bool IsFull(){
-            return rear == (size-1);
+            return (((rear+1) % size) == front);
         }
 
         bool IsEmpty(){
@@ -36,7 +38,7 @@ class Queue{
                 myQueue[0] = value;
                 return;
             }
-            rear++;
+            rear = (rear+1) % size;
             myQueue[rear] = value;
         }
 
@@ -45,7 +47,7 @@ class Queue{
             int dequeuedValue = myQueue[front];
             myQueue[front] = 0;
             if(front == rear) front = rear = -1;
-            else front++;
+            else front = (front+1)%size;
             
             return dequeuedValue;
         }
